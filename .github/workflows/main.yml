@@ -1,4 +1,4 @@
-name: Deploy CDK via Self-Hosted Runner
+name: Deploy Python CDK
 
 on:
   push:
@@ -10,22 +10,37 @@ jobs:
     runs-on: label-3
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.12'
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'
 
-      - name: Install CDK dependencies
-        run: |
-          npm install -g aws-cdk
-          python -m venv .venv
-          source .venv/bin/activate
-          pip install -r requirements.txt
+    - name: Install Node.js (for CDK CLI)
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'   # You can also use 20 if you want latest
 
-      - name: Deploy CDK Stack
-        run: |
-          source .venv/bin/activate
-          cdk deploy --require-approval never
+    - name: Install AWS CDK CLI
+      run: npm install -g aws-cdk
+
+    - name: Install Python dependencies
+      run: |
+        python -m venv .venv
+        source .venv/bin/activate
+        pip install -r requirements.txt
+
+    - name: Verify CDK version
+      run: cdk --version
+
+    - name: CDK Bootstrap
+      run: |
+        source .venv/bin/activate
+        cdk bootstrap aws://459685751152/ap-south-1
+
+    - name: CDK Deploy
+      run: |
+        source .venv/bin/activate
+        cdk deploy --require-approval never
