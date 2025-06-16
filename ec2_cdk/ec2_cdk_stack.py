@@ -50,3 +50,4 @@ class Ec2CdkStack(Stack):
             security_group=security_group,
             vpc_subnets=ec2.SubnetSelection(subnet_type=ec2.SubnetType.PUBLIC),
         )
+        
