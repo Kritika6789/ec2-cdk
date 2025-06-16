@@ -42,7 +42,7 @@ class Ec2CdkStack(Stack):
             "cd /opt/actions-runner",
             "chmod +x config.sh",
             # Replace below with your actual runner registration token
-            "./config.sh --url https://github.com/Kritika6789/ec2-cdk --token BAP5FXH2NSLQOON4D35P5SDIKAG6Y --name ec2-instance --label ec2-instance --unattended",
+            "./config.sh --url https://github.com/Kritika6789/ec2-cdk --token BAP5FXH2NSLQOON4D35P5SDIKAG6Y --name ec2-instance-12 --label ec2-instance-12 --unattended",
             "./run.sh"
         )
 
