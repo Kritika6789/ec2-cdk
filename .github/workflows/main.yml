@@ -1,5 +1,4 @@
 name: Deploy Python CDK
-
 on:
   push:
     branches:
