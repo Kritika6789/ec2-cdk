@@ -34,15 +34,13 @@ class Ec2CdkStack(Stack):
         # UserData for installing GitHub Runner
         user_data = ec2.UserData.for_linux()
         user_data.add_commands(
-            "sudo yum update -y",
-            "sudo yum install -y git",
+            "cd /opt",
             "mkdir actions-runner && cd actions-runner",
-            "curl -o actions-runner-linux-x64-2.314.1.tar.gz -L https://github.com/actions/runner/releases/download/v2.314.1/actions-runner-linux-x64-2.314.1.tar.gz",
-            "tar xzf actions-runner-linux-x64-2.314.1.tar.gz",
+            "curl -o actions-runner-linux-x64-2.325.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.325.0/actions-runner-linux-x64-2.325.0.tar.gz",
+            "tar xzf ./actions-runner-linux-x64-2.325.0.tar.gz",
             # Replace below with your actual runner registration token
-            "./config.sh --url https://github.com/Kritika6789/ec2-cdk --token BAP5FXHDWFRIY4HKOOPIHODIKAA3Y --name ec2-instance --label ec2-instance  --unattended --replace",
-            "sudo ./svc.sh install",
-            "sudo ./svc.sh start"
+            "./config.sh --url https://github.com/Kritika6789/ec2-cdk --token BAP5FXH2NSLQOON4D35P5SDIKAG6Y --name ec2-instance --label ec2-instance --unattended",
+            "./run.sh"
         )
 
         # EC2 Instance
