@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: label-3
+    runs-on: label-4
 
     steps:
     - name: Checkout code
