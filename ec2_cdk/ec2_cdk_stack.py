@@ -39,7 +39,7 @@ class Ec2CdkStack(Stack):
             "mkdir actions-runner && cd actions-runner",
             "curl -o actions-runner-linux-x64-2.325.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.325.0/actions-runner-linux-x64-2.325.0.tar.gz",
             "tar xzf ./actions-runner-linux-x64-2.325.0.tar.gz",
-            "sudo chown -R ec2-user:ec2-user /opt/actions-runner",
+            "sudo chown -R ec2-user:ec2-user /opt/practice/actions-runner",
             "cd /opt/practice/actions-runner",
             "chmod +x config.sh",
             # Replace below with your actual runner registration token
