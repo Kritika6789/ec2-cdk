@@ -44,7 +44,6 @@ class Ec2CdkStack(Stack):
             machine_image=ec2.MachineImage.latest_amazon_linux2023(),
             vpc=vpc,
             security_group=sg,
-            key_name="key-1.pem",
             user_data=user_data
  # Replace with your EC2 keypair
         )
