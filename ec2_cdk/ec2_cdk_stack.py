@@ -13,6 +13,7 @@ class Ec2CdkStack(Stack):
         vpc = ec2.Vpc(self, "MyVpc",
             max_azs=2,
             cidr="10.0.0.0/16",
+            restrict_default_security_group=False,
             subnet_configuration=[
                 ec2.SubnetConfiguration(
                     name="public-subnet",
