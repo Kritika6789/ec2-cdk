@@ -43,5 +43,6 @@ class Ec2CdkStack(Stack):
             vpc=vpc,
             security_group=sg,
             role=role,
-            user_data=user_data
+            user_data=user_data,
         )
+        
