@@ -20,7 +20,7 @@ jobs:
     - name: Install Node.js (for CDK CLI)
       uses: actions/setup-node@v3
       with:
-        node-version: '18'   # You can also use 20 if you want latest
+        node-version: '22'   # You can also use 20 if you want latest
 
     - name: Install AWS CDK CLI
       run: npm install -g aws-cdk
