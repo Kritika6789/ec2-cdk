@@ -3,9 +3,11 @@ import os
 from ec2_cdk.ec2_cdk_stack import Ec2CdkStack
 
 app = cdk.App()
+account = os.environ.get("CDK_DEFAULT_ACCOUNT")
+region = os.environ.get("CDK_DEFAULT_REGION")
 Ec2CdkStack(app, "Ec2CdkStack",env=cdk.Environment(
-        account="459685751152",
-        region="ap-south-1"
-    ) ) # temporary token from GitHub)
+        account=account,
+        region=region
+    ) )
 app.synth()
 
