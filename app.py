@@ -9,6 +9,9 @@ Ec2CdkStack(app, "Ec2CdkStack",env=cdk.Environment(
         account=account,
         region=region
     ) )
-S3CdkStack(app, "S3CdkStack")
+S3CdkStack(app, "S3CdkStack",env=cdk.Environment(
+        account=account,
+        region=region
+    ))
 app.synth()
 

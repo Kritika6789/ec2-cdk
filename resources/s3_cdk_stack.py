@@ -3,7 +3,6 @@ from aws_cdk import (
     Stack,
     aws_s3 as s3,
     RemovalPolicy
-    # aws_sqs as sqs,
 )
 from constructs import construct
 
