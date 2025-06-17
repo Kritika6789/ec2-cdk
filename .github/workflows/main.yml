@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: label-4
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
@@ -31,14 +31,16 @@ jobs:
         source .venv/bin/activate
         pip install --upgrade pip setuptools wheel
         pip install -r requirements.txt
-
-    - name: Verify CDK version
-      run: cdk --version
+      
+    - name: CDK Synth
+      run: cdk synth
+      
+    - name: CDK diff
+      run: cdk diff
 
     - name: CDK Bootstrap
       run: |
-        source .venv/bin/activate
-        cdk bootstrap aws://459685751152/ap-south-1
+        cdk bootstrap
 
     - name: CDK Deploy
       run: |
