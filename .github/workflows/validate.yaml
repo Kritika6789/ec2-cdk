@@ -47,11 +47,15 @@ jobs:
       run: |
         source .venv/bin/activate
         cdk doctor
-    - name: CDK Synth
+    - name: CDK Synth for ec2 cdk stack
       run: |
         source .venv/bin/activate
-        cdk synth
-        
+        cdk synth Ec2CdkStack
+    - name: CDK Synth for s3 cdk stack
+      run: |
+        source .venv/bin/activate
+        cdk synth S3CdkStack 
+    
     - name: CDK diff
       run: |
         source .venv/bin/activate
