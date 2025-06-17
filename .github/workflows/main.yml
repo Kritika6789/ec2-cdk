@@ -38,10 +38,13 @@ jobs:
         cdk synth
       
     - name: CDK diff
-      run: cdk diff
+      run: | 
+        source .venv/bin/activate
+        cdk diff
 
     - name: CDK Bootstrap
       run: |
+        source .venv/bin/activate
         cdk bootstrap
 
     - name: CDK Deploy
