@@ -1,13 +1,13 @@
 name: Deploy Python CDK
 on:
-  push:
-    branches:
-      - master
+  workflow_run:
+    workflows: ["Validate CDK"]
+    types:
+      - completed
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     env:
       CDK_DEFAULT_ACCOUNT: ${{ secrets.AWS_ACCOUNT_ID }}
       CDK_DEFAULT_REGION: ap-south-1
@@ -42,16 +42,6 @@ jobs:
         pip install --upgrade pip setuptools wheel
         pip install -r requirements.txt
       
-    - name: CDK Synth
-      run: |
-        source .venv/bin/activate
-        cdk synth
-      
-    - name: CDK diff
-      run: | 
-        source .venv/bin/activate
-        cdk diff
-
     - name: CDK Bootstrap
       run: |
         source .venv/bin/activate
