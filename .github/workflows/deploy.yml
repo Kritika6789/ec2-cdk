@@ -45,7 +45,7 @@ jobs:
     - name: CDK Bootstrap
       run: |
         source .venv/bin/activate
-        cdk bootstrap aws://{CDK_DEFAULT_ACCOUNT}/{CDK_DEFAULT_REGION}
+        cdk bootstrap
 
 
     - name: CDK Deploy 
