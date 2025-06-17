@@ -33,7 +33,9 @@ jobs:
         pip install -r requirements.txt
       
     - name: CDK Synth
-      run: cdk synth
+      run: |
+        source .venv/bin/activate
+        cdk synth
       
     - name: CDK diff
       run: cdk diff
