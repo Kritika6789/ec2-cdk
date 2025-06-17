@@ -45,7 +45,7 @@ jobs:
     - name: CDK Bootstrap
       run: |
         source .venv/bin/activate
-        cdk bootstrap
+        cdk bootstrap aws://459685751152/ap-south-1
 
 
     - name: CDK Deploy 
