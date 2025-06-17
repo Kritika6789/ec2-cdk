@@ -4,7 +4,7 @@ from aws_cdk import (
     aws_s3 as s3,
     RemovalPolicy
 )
-from constructs import construct
+from constructs import Construct
 
 class S3CdkStack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
