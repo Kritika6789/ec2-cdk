@@ -43,11 +43,18 @@ jobs:
         pip install --upgrade pip setuptools wheel
         pip install -r requirements.txt
       
-    - name: CDK Synth
+    - name: CDK doctor
       run: |
         source .venv/bin/activate
         cdk doctor
+    - name: CDK Synth
+      run: |
+        source .venv/bin/activate
         cdk synth
+        
+    - name: CDK diff
+      run: |
+        source .venv/bin/activate
         cdk diff
         
       
